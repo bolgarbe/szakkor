@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Számelmélet és algebra</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" />
+  <script type="text/javascript" src="js/d3.min.js"></script>
+  <script type="text/javascript" src="js/group.js"></script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <h1>Számelmélet és <span class="logo_colour">algebra</span></h1>
+          <h2>Részcsoportok a modulo <i>n</i> redukált maradékosztályok multiplikatív csoportjában</h2>
+        </div>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+        <h1>Bevezetés</h1>
+        <p>Tekintsük a modulo <i>n</i> redukált maradékosztályok multiplikatív csoportját. Mit is jelent ez?</p>
+        <ul>
+        <li><b>Modulo <i>n</i></b>. A pozitív egész számok <i>n</i>-nel képzett osztási maradékait vesszük.</li>
+        <li><b>Maradékosztály.</b> Végtelen sok olyan pozitív egész szám létezik, amely <i>n</i>-nel osztva ugyanazt a maradékot adja. Ezek együttesét nevezzük modulo <i>n</i> maradékosztálynak. Például a <i>2</i>, <i>9</i>, <i>16</i>, <i>25</i>, stb. számok mind <i>2</i>-t adnak maradékul <i>n</i> = <i>7</i>-tel osztva, tehát ugyanabba a modulo <i>7</i> maradékosztályba tartoznak. Az egyszerűség kedvéért minden ilyen maradékosztályt jelöljünk a hozzá tartozó legkisebb pozitív egész számmal; az előbbi esetben ez a <i>2</i>.</li>
+        <li><b>Redukált maradékosztály.</b> Olyan maradékosztály, amelynek elemei relatív prímek <i>n</i>-hez, azaz <i>n</i>-nel vett legnagyobb közös osztójuk <i>1</i>.</li>
+        <li><b>Multiplikatív csoport.</b> Műveletnek a szorzást válaszjuk.</li>
+        </ul>
+        <p><i>n</i> = <i>12</i> esetén például a redukált maradékosztályok: <i>(1)</i>, <i>(5)</i>, <i>(7)</i>, <i>(11)</i>. Meg lehet mutatni, hogy a modulo <i>n</i> maradékosztályok halmaza a szorzás műveletével együtt kielégíti az ún. csoportaxiómákat:</p>
+        <ul>
+        <li>1) A művelet <b>nem vezet ki</b> a halmazból, azaz két ilyen maradékosztályt (illetve az őket reprezentáló elemeket) összeszorozva mindig egy másik, halmazbeli maradékosztályt kapunk. A fenti esetben például <i>(5)</i>&middot;<i>(7)</i> &equiv; <i>(35)</i> &equiv; <i>(11)</i>, vagy <i>(11)</i>&middot;<i>(5)</i> &equiv; <i>(55)</i> &equiv; <i>(7)</i>. Vegyük észre, hogy a második ekvivalencia mindig a <i>12</i>-vel való maradékos osztás miatt adódik.</li>
+        <li>2) A szorzás művelete <b>asszociatív</b>, azaz <i>(a&middot;b)&middot;c</i> = <i>a&middot;(b&middot;c)</i>.
+        <li>3) Létezik <b>egységelem</b>, amellyel bármelyik halmazbeli elemet megszorozva önmagát kapjuk vissza. Nyilvánvalóan ez az <i>(1)</i>, hiszen például <i>(5)</i>&middot;<i>(1)</i> &equiv; <i>(5)</i>.
+        <li>4) Minden halmazbeli elemhez létezik <b>inverz elem</b>, amelyeket összeszorozva éppen az egységelemet kapjuk vissza. A fenti eset azért is érdekes, mert itt minden elemnek önmaga az inverze: <i>(1)</i>&middot;<i>(1)</i> &equiv; <i>(1)</i>, <i>(5)</i>&middot;<i>(5)</i> &equiv; <i>(25)</i> &equiv; <i>(1)</i>, <i>(7)</i>&middot;<i>(7)</i> &equiv; <i>(49)</i> &equiv; <i>(1)</i> és <i>(11)</i>&middot;<i>(11)</i> &equiv; <i>(121)</i> &equiv; <i>(1)</i>.
+        </ul>
+        <h1>Részcsoportok</h1>
+        <p>Ha egy csoportból ki tudunk választani olyan részhalmazt, amely önmagában is csoportot alkot a választott művelettel (tehát kielégíti az előbbi axiómákat), azt <b>részcsoportnak</b> nevezzük. <i>n</i> = <i>12</i> esetén például az {<i>(1), (5)</i>} redukált maradékosztályok részcsoportot alkotnak. A részcsoport azon elemeit, amelyekre a műveletet ismételten alkalmazva a részcsoport összes eleme előáll, <b>generátor</b> elemeknek nevezzük.</p>
+        <p><i>Példa.</i> Tekintsük <i>n</i> = <i>13</i>-at. Mivel ez prímszám, minden nála kisebb pozitív egész szám relatív prím lesz, tehát a redukált maradékosztályok: <i>(1)</i>, <i>(2)</i>, <i>(3)</i>, <i>(4)</i>, <i>(5)</i>, <i>(6)</i>, <i>(7)</i>, <i>(8)</i>, <i>(9)</i>, <i>(10)</i>, <i>(11)</i>, <i>(12)</i>. A következő ábrán az egyes körök egy-egy részcsoportot ábrázolnak, a generátor elem pedig legfelül található. Vegyük észre, hogy a körön az óramutató járásával megegyezően haladva mindig a generátor elemmel szorzunk és <i>n</i>-nel vett maradékot képzünk. Középen a részcsoport <b>rendje</b> (elemeinek száma) látható, a sokszögek a részcsoportok részcsoportjait jelölik. Ugyanazt a részcsoportot több elem is generálhatja: a másodikként ábrázolt részcsoportnál a <i>2</i> helyett választhattuk volna a <i>6</i>-ot vagy <i>7</i>-et is. Ez egyébként egyben a teljes csoport, amely nyilvánvalóan önmagának részcsoportja. Általában véve igaz, hogy ha modulusnak prímszámot választunk, lesz olyan generátor, amely a teljes csoportot generálja. Ezt nevezzük modulo <i>n</i> primitív gyöknek (azaz a <i>2</i> modulo <i>13</i> primitív gyök). Végül pedig vegyük észre, hogy minden részcsoport rendje osztója a csoport rendjének. Ezt mondja ki a <b>Lagrange-tétel.</b></p>
+        <div id="grp-holder"></div>
+        <h1>Játék</h1>
+        <p>Írjunk be egy számot 2 és 3000 között, majd rajzoltassuk ki a fenti ábrát!</p>
+			  <p><i>n</i> = <input type="number" id="n" min="2" max="3000" value="53">
+			  <button id="go">Mehet!</button></p>
+        <div id="grp2-holder"></div>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p>Prog szakkörös anyag</p>
+    </div>
+  </div>
+</body>
+</html>
